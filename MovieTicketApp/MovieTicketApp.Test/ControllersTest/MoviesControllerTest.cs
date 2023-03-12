@@ -15,7 +15,7 @@ namespace MovieTicketApp.Test.Controllers
 			movieapiservices = new Mock<IMovieApiServices>();
 		}
 		[Test]
-		public void GetAllMoviesTest() {
+		public void GetAllMoviesSucessTest() {
 
 			MovieModel movieModel = new MovieModel() { Name = "", Duration = "", Genre = "", Rating = "", ImageUrl = "", TicketCount = "", movie_id = "" };
 			List<MovieModel> movies = new List<MovieModel> { movieModel};
@@ -25,7 +25,6 @@ namespace MovieTicketApp.Test.Controllers
 			MoviesController moviescontroller = new MoviesController(movieapiservices.Object);
 
 			var actual=moviescontroller.GetAllMovies();
-			//ActionResult<List<MovieModel>> result = actual as ActionResult<List<MovieModel>>;
 			var res = actual.Result as OkObjectResult;
 
 			Assert.That(res.Value, Is.EqualTo(movies));
@@ -33,7 +32,23 @@ namespace MovieTicketApp.Test.Controllers
 		}
 
         [Test]
-        public void GetMovieByIdTest() {
+        public void GetAllMoviesFailedTest()
+        {
+
+            MovieModel movieModel = new MovieModel() { Name = "", Duration = "", Genre = "", Rating = "", ImageUrl = "", TicketCount = "", movie_id = "" };
+            List<MovieModel> movies = new List<MovieModel> { movieModel };
+
+            movieapiservices.Setup(val => val.GetAllMovies()).Returns(()=>null);
+
+            MoviesController moviescontroller = new MoviesController(movieapiservices.Object);
+
+            var actual = moviescontroller.GetAllMovies();
+            var res = actual.Result as StatusCodeResult;
+
+            Assert.That(res.StatusCode, Is.EqualTo(500));
+        }
+        [Test]
+        public void GetMovieByIdSuccessTest() {
             MovieModel movieModel = new MovieModel() { Name = "", Duration = "", Genre = "", Rating = "", ImageUrl = "", TicketCount = "", movie_id = "" };
             movieapiservices.Setup(val => val.GetMovieById("12")).Returns(movieModel);
             MoviesController moviescontroller = new MoviesController(movieapiservices.Object);
@@ -43,6 +58,17 @@ namespace MovieTicketApp.Test.Controllers
             Assert.That(res.StatusCode, Is.EqualTo(200));
 
         }
-	}
+        [Test]
+        public void GetMovieByIdFailedTest()
+        {
+            MovieModel movieModel = new MovieModel() { Name = "", Duration = "", Genre = "", Rating = "", ImageUrl = "", TicketCount = "", movie_id = "" };
+            movieapiservices.Setup(val => val.GetMovieById("12")).Returns(()=>null);
+            MoviesController moviescontroller = new MoviesController(movieapiservices.Object);
+            var actual = moviescontroller.GetMovieById("12");
+            var res = actual.Result as StatusCodeResult;
+            Assert.That(res.StatusCode, Is.EqualTo(404));
+
+        }
+    }
 }
 

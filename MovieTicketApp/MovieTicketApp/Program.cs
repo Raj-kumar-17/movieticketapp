@@ -19,6 +19,7 @@ IMovieDatabaseSettings settings=new MovieDatabaseSettings();
 settings.DatabaseName = builder.Configuration.GetValue<string>("MovieDatabaseSettings:DatabaseName");
 settings.ConnectionString= builder.Configuration.GetValue<string>("MovieDatabaseSettings:ConnectionString");
 settings.UserCollectionName= builder.Configuration.GetValue<string>("MovieDatabaseSettings:UserCollectionName");
+settings.PassKey = builder.Configuration.GetValue<string>("MovieDatabaseSettings:PassKey");
 builder.Services.AddAuthentication(a =>
 {
     a.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

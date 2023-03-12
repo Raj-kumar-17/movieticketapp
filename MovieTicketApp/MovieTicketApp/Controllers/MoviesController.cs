@@ -26,7 +26,7 @@ namespace MovieTicketApp.Controllers
             var res=movieapiservices.GetAllMovies();
             if(res == null) { return StatusCode(500); }
 
-            return res;
+            return Ok(res);
         }
 
         [HttpGet]
@@ -36,7 +36,7 @@ namespace MovieTicketApp.Controllers
             var res = movieapiservices.GetMovieById(id);
             if (res == null) { return StatusCode(404); }
 
-            return res;
+            return Ok(res);
         }
 
     }

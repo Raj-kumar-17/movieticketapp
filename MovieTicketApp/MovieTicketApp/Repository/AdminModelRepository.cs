@@ -33,7 +33,7 @@ namespace MovieTicketApp.Repository
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return "Failed to Insert";
+                return "Failed to Update";
             }
         }
 

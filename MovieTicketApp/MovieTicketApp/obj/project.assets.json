@@ -7513,26 +7513,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hp\\.nuget\\packages\\": {}
+    "/Users/apple/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Raj\\Training-Raj\\Training-Raj\\MovieTicketApp\\MovieTicketApp\\MovieTicketApp.csproj",
+      "projectUniqueName": "/Users/apple/raj/movieticketapp/MovieTicketApp/MovieTicketApp/MovieTicketApp.csproj",
       "projectName": "MovieTicketApp",
-      "projectPath": "C:\\Raj\\Training-Raj\\Training-Raj\\MovieTicketApp\\MovieTicketApp\\MovieTicketApp.csproj",
-      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Raj\\Training-Raj\\Training-Raj\\MovieTicketApp\\MovieTicketApp\\obj\\",
+      "projectPath": "/Users/apple/raj/movieticketapp/MovieTicketApp/MovieTicketApp/MovieTicketApp.csproj",
+      "packagesPath": "/Users/apple/.nuget/packages/",
+      "outputPath": "/Users/apple/raj/movieticketapp/MovieTicketApp/MovieTicketApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/apple/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7603,7 +7601,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.201/RuntimeIdentifierGraph.json"
       }
     }
   },

@@ -2,7 +2,7 @@
 "SpaProxyServer": {
 "ServerUrl": "http://localhost:44421",
 "LaunchCommand": "npm start",
-"WorkingDirectory": "C:\\Raj\\Training-Raj\\Training-Raj\\MovieTicketApp\\MovieTicketApp\\ClientApp\\",
+"WorkingDirectory": "/Users/apple/raj/movieticketapp/MovieTicketApp/MovieTicketApp/ClientApp/",
 "MaxTimeoutInSeconds": "120"
 }
 }

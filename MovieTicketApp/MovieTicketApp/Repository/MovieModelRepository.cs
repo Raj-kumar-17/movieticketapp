@@ -21,9 +21,7 @@ namespace MovieTicketApp.Repository
                 movies = movie.Find(std => true).ToList();
                 return movies;
 
-
-
-        }
+          }
 
         public MovieModel GetMovieById(string id)
         {

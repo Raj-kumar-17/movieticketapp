@@ -1,11 +1,13 @@
 ﻿import { useState,useEffect } from "react";
 import axios from "axios";
-import { json, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, Modal, ModalBody, ModalHeader, Form, FormGroup, Label, Input} from 'reactstrap';
 import jwtDecode from "jwt-decode";
 import styled from "styled-components";
 import Pagination from "./Pagination";
 import Loader from "./Loader";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 /*--------------Styled-Components--------------------*/
 const Cards=styled.div`
@@ -40,6 +42,11 @@ height:400px;
 display:flex;
 align-item:center;
 justify-content:center;
+`;
+
+const Search=styled.div`
+width:300px;
+float:right;
 `;
 
 const CardContainer=styled.div`
@@ -180,15 +187,17 @@ const UserPage=()=>{
            console.log(response)
            alert("Movie Added Successfully");
            setAddOpen(!Addopen)
-           window.location.reload(false);
+           window.location.reload(false);   
           })
-          .catch(function (response) {
-              if(response.status===403)
-                alert("You Cannot Insert Two Movies Twice");
-
-              if(response.status===500)
+            .catch(function (err) {
+                if (err.response.status === 403)
+              {
+                  alert("You Cannot Insert Two Movies Twice");
+              }
+                
+              if(err.response.status===500)
                 alert("Failed to Insert");
-            console.log(response);
+            console.log(err);
           });
 
       }
@@ -274,8 +283,13 @@ return(
 <CardContainer>
 
         <AdminButton to="/AdminLoginPage" data-testId="adminbutton">{authenticated?"Logged in as Admin":"Login as Admin"}</AdminButton>
-        {authenticated&&<ADAddButton onClick={()=>setAddOpen(true)}>Add Movie</ADAddButton>}
+       
         {authenticated&&<ADLogoutButton onClick={()=>logoutAdmin()}>Logout</ADLogoutButton>}
+
+
+  {authenticated&&<ADAddButton onClick={()=>setAddOpen(true)}>Add Movie</ADAddButton>}
+  
+
 <Modal data-testId="Description-Modal" isOpen={open} toggle={() => setOpen(!open)}>
   <ModalHeader toggle={() => setOpen(!open)}>
     Movie Details

@@ -117,7 +117,8 @@ setNotValidpassword(false);
 }
     return (
         <Body>
-			<Modal data-testId="Unauth-Modal" isOpen={open} toggle={() => setOpen(!open)}>
+			
+			<Modal data-testId="unauth-modal" isOpen={open} toggle={() => setOpen(!open)}>
   <ModalHeader toggle={() => setOpen(!open)}>
     Authorization Error
   </ModalHeader>
@@ -125,6 +126,7 @@ setNotValidpassword(false);
     Invalid username or password<br/>
   </ModalBody>
         </Modal>
+
             <section>
                 <Heading class="title">Log-in</Heading>
                 <Form action="login-box">
